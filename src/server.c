@@ -6,7 +6,7 @@
 /*   By: igvaz-fe <igvaz-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:07:41 by igvaz-fe          #+#    #+#             */
-/*   Updated: 2021/10/11 23:01:08 by igvaz-fe         ###   ########.fr       */
+/*   Updated: 2021/10/11 23:32:07 by igvaz-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 static void	receive_message(int signum, siginfo_t *siginfo, void *unused)
 {
-	static int	ascii;
-	static int	flip_counter;
+	static int	ascii = 0;
+	static int	flip_counter = 0;
 
-	ascii = 0;
-	flip_counter = 0;
 	(void)unused;
 	if (signum == SIGUSR1)
 		ascii += 1 << (7 - flip_counter);
