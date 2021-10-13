@@ -6,7 +6,7 @@
 /*   By: igvaz-fe <igvaz-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:07:22 by igvaz-fe          #+#    #+#             */
-/*   Updated: 2021/10/11 22:52:01 by igvaz-fe         ###   ########.fr       */
+/*   Updated: 2021/10/13 14:35:35 by igvaz-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	receive_confirmation(int signum)
 	}
 }
 
-static void	decimal_conversion(char c, int flip_counter, int pid)
+static void	decimal_conversion(unsigned char c, int flip_counter, int pid)
 {
 	if (flip_counter > 0)
 		decimal_conversion(c / 2, flip_counter - 1, pid);
@@ -41,7 +41,7 @@ static void	decimal_conversion(char c, int flip_counter, int pid)
 			exit(1);
 		}
 	}
-	usleep(1000);
+	usleep(200);
 }
 
 static void	send_message(int server_pid, char *message)
@@ -51,7 +51,7 @@ static void	send_message(int server_pid, char *message)
 	i = 0;
 	while (message[i])
 	{
-		decimal_conversion(message[i], 7, server_pid);
+		decimal_conversion((unsigned char)message[i], 7, server_pid);
 		i++;
 	}
 	decimal_conversion('\n', 7, server_pid);
