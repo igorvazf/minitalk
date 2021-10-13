@@ -6,7 +6,7 @@
 /*   By: igvaz-fe <igvaz-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:07:41 by igvaz-fe          #+#    #+#             */
-/*   Updated: 2021/10/11 23:32:07 by igvaz-fe         ###   ########.fr       */
+/*   Updated: 2021/10/13 20:17:32 by igvaz-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static void	receive_message(int signum, siginfo_t *siginfo, void *unused)
 	if (signum == SIGUSR1)
 		ascii += 1 << (7 - flip_counter);
 	flip_counter++;
+	kill(siginfo->si_pid, SIGUSR1);
 	if (flip_counter == 8)
 	{
 		ft_printf("%c", ascii);
 		flip_counter = 0;
 		if (ascii == '\0')
-			if (kill(siginfo->si_pid, SIGUSR1) != 0)
-				ft_printf("Error signal!\n");
+			kill(siginfo->si_pid, SIGUSR2);
 		ascii = 0;
 	}
 }

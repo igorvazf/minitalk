@@ -6,7 +6,7 @@
 /*   By: igvaz-fe <igvaz-fe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:07:22 by igvaz-fe          #+#    #+#             */
-/*   Updated: 2021/10/13 14:43:16 by igvaz-fe         ###   ########.fr       */
+/*   Updated: 2021/10/13 20:21:49 by igvaz-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 static void	receive_confirmation(int signum)
 {
 	if (signum == SIGUSR1)
+		ft_printf("Signal received!\n");
+	if (signum == SIGUSR2)
 	{
 		ft_printf("Signal received!\n");
-		exit(0);
+		exit (0);
 	}
 }
 
@@ -41,7 +43,7 @@ static void	decimal_conversion(unsigned char c, int flip_counter, int pid)
 			exit(1);
 		}
 	}
-	usleep(1000);
+	usleep(5000);
 }
 
 static void	send_message(int server_pid, char *message)
@@ -74,6 +76,7 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	signal(SIGUSR1, receive_confirmation);
+	signal(SIGUSR2, receive_confirmation);
 	send_message(pid, argv[2]);
 	while (1)
 		pause();
