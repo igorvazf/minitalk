@@ -14,7 +14,7 @@ $ ./server
 Server PID: <PID_SERVEUR>
 
 ```
-Após isso, enquanto o server está em execução, é possível mandar uma string como argumento na linha de comando para o *server*:
+Após isso, enquanto o *server* está em execução, é possível mandar uma string como argumento na linha de comando para o *server*:
 ```
 $ ./client <PID_SERVEUR> <STRING_TO_PASS>
 ```
