@@ -8,7 +8,7 @@ make
 ```
 
 ### Como executar?
-Primeiro, é necessário executar o server para descobrir o *Process Identifier* dele:
+Primeiro, é necessário executar o *server* para descobrir o *Process Identifier* dele:
 ```
 $ ./server
 Server PID: <PID_SERVEUR>
