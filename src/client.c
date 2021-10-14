@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igvaz-fe <igvaz-fe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: igvaz-fe <igvaz-fe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:07:22 by igvaz-fe          #+#    #+#             */
-/*   Updated: 2021/10/13 20:21:49 by igvaz-fe         ###   ########.fr       */
+/*   Updated: 2021/10/13 16:46:46 by igvaz-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static void	receive_confirmation(int signum)
 {
-	if (signum == SIGUSR1)
-		ft_printf("Signal received!\n");
 	if (signum == SIGUSR2)
 	{
 		ft_printf("Signal received!\n");
@@ -43,7 +41,7 @@ static void	decimal_conversion(unsigned char c, int flip_counter, int pid)
 			exit(1);
 		}
 	}
-	usleep(5000);
+	usleep(10000);
 }
 
 static void	send_message(int server_pid, char *message)

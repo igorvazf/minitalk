@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igvaz-fe <igvaz-fe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: igvaz-fe <igvaz-fe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:07:41 by igvaz-fe          #+#    #+#             */
-/*   Updated: 2021/10/13 20:17:32 by igvaz-fe         ###   ########.fr       */
+/*   Updated: 2021/10/13 16:41:24 by igvaz-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	receive_message(int signum, siginfo_t *siginfo, void *unused)
 	if (signum == SIGUSR1)
 		ascii += 1 << (7 - flip_counter);
 	flip_counter++;
-	kill(siginfo->si_pid, SIGUSR1);
 	if (flip_counter == 8)
 	{
 		ft_printf("%c", ascii);
@@ -30,6 +29,7 @@ static void	receive_message(int signum, siginfo_t *siginfo, void *unused)
 			kill(siginfo->si_pid, SIGUSR2);
 		ascii = 0;
 	}
+	kill(siginfo->si_pid, SIGUSR1);
 }
 
 int	main(void)
