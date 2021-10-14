@@ -27,7 +27,7 @@ $(CLIENT): $(OBJ_CLIENT)
 	make -C $(FT_PRINTF_DIR)
 	$(CC) $(CFLAGS) $(OBJ_CLIENT) $(FT_PRINTF) -o $(CLIENT)
 
-#bonus: all
+bonus: all
 
 clean:
 	$(RM) $(OBJ_CLIENT)
