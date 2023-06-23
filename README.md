@@ -19,4 +19,4 @@ Após isso, enquanto o *server* está em execução, é possível mandar uma str
 $ ./client <PID_SERVEUR> <STRING_TO_PASS>
 ```
 
-#### More about School 42 you can find here: https://en.wikipedia.org/wiki/42_(school)
+#### Mais informações sobre a Escola 42 (inglês): https://en.wikipedia.org/wiki/42_(school)
